@@ -11,18 +11,20 @@ import styles from "@/styles/OnboardingForm.module.css";
 import StepTracker from "@/components/UI/StepTracker";
 
 const initialState: OnboardingFormState = {
-  name: "",
-  email: "",
-  age: "",
+  name: "", //ok
+  email: "", //ok
+  age: "", //ok
   location: "",
-  weight: "",
-  height: "",
+  weight: "", //ok
+  height: "", //ok
+  bodyObjective: "", //ok
+  workoutFrequency: "",
   like: [],
   dislike: [],
   allergies: [],
-  workoutFrequency: "",
   workoutType: "",
-  bodyObjective: "",
+  mealPreference: "",
+  workoutHours: "",
 };
 
 const OnboardingForm: React.FC = () => {
@@ -58,17 +60,9 @@ const OnboardingForm: React.FC = () => {
           />
         )}
         {currentStep === 2 && (
-          <WorkoutStep
-            age={formState.age}
-            height={formState.height}
-            weight={formState.weight}
-            goal={formState.bodyObjective}
-            schedule={formState.workoutFrequency}
+          <BodyStep
             setGoal={(goal) =>
               dispatch({ type: "UPDATE_BODY_OBJECTIVE", payload: goal })
-            }
-            setSchedule={(schedule) =>
-              dispatch({ type: "UPDATE_WORKOUT_FREQUENCY", payload: schedule })
             }
             setAge={(age) => dispatch({ type: "UPDATE_AGE", payload: age })}
             setHeight={(height) =>
@@ -76,28 +70,25 @@ const OnboardingForm: React.FC = () => {
             }
             setWeight={(weight) =>
               dispatch({ type: "UPDATE_WEIGHT", payload: weight })
+            }
+            setMealPreference={(mealPreference) =>
+              dispatch({
+                type: "UPDATE_MEAL_PREFERENCE",
+                payload: mealPreference,
+              })
             }
           />
         )}
         {currentStep === 3 && (
           <WorkoutStep
-            age={formState.age}
-            height={formState.height}
-            weight={formState.weight}
-            goal={formState.bodyObjective}
-            schedule={formState.workoutFrequency}
-            setGoal={(goal) =>
-              dispatch({ type: "UPDATE_BODY_OBJECTIVE", payload: goal })
+            setWorkoutType={(workoutType) =>
+              dispatch({ type: "UPDATE_WORKOUT_TYPE", payload: workoutType })
             }
             setSchedule={(schedule) =>
               dispatch({ type: "UPDATE_WORKOUT_FREQUENCY", payload: schedule })
             }
-            setAge={(age) => dispatch({ type: "UPDATE_AGE", payload: age })}
-            setHeight={(height) =>
-              dispatch({ type: "UPDATE_HEIGHT", payload: height })
-            }
-            setWeight={(weight) =>
-              dispatch({ type: "UPDATE_WEIGHT", payload: weight })
+            setWorkoutHours={(workoutHours) =>
+              dispatch({ type: "UPDATE_WORKOUT_HOURS", payload: workoutHours })
             }
           />
         )}

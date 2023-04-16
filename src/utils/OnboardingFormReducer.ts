@@ -9,8 +9,10 @@ export interface OnboardingFormState {
   dislike: string[];
   allergies: string[];
   workoutFrequency: string;
+  workoutHours: string;
   workoutType: string;
   bodyObjective: string;
+  mealPreference: string;
 }
 
 interface OnboardingFormAction {
@@ -47,6 +49,10 @@ export const onboardingFormReducer = (
       return { ...state, workoutType: action.payload };
     case "UPDATE_BODY_OBJECTIVE":
       return { ...state, bodyObjective: action.payload };
+    case "UPDATE_MEAL_PREFERENCE":
+      return { ...state, mealPreference: action.payload };
+    case "UPDATE_WORKOUT_HOURS":
+      return { ...state, workoutHours: action.payload };
 
     // Add more action handlers here
     default:

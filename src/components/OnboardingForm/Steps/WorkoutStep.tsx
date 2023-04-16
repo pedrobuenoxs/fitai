@@ -1,38 +1,57 @@
-import SliderInput from "@/components/UI/AgeInput";
 import React from "react";
 
 interface WorkoutProps {
-  age: string;
-  height: string;
-  weight: string;
-  goal: string;
-  schedule: string;
-  setGoal: (goal: string) => void;
   setSchedule: (schedule: string) => void;
-  setAge: (age: string) => void;
-  setHeight: (height: string) => void;
-  setWeight: (weight: string) => void;
+  setWorkoutType: (workoutType: string) => void;
+  setWorkoutHours: (workoutHours: string) => void;
 }
 
 const WorkoutStep: React.FC<WorkoutProps> = ({
-  goal,
-  schedule,
-  setGoal,
   setSchedule,
-  setAge,
-  setHeight,
-  setWeight,
+  setWorkoutType,
+  setWorkoutHours,
 }) => {
   return (
     <>
-      <label htmlFor="age">Sua idade</label>
-      <SliderInput setProp={setAge} min={15} max={80} defaultValue={25} />
+      <label htmlFor="schedule">Seu horário de treino</label>
+      <select
+        name="schedule"
+        id="schedule"
+        onChange={(e) => setSchedule(e.target.value)}
+        defaultValue="Manhã"
+      >
+        <option value="Manhã">Manhã</option>
+        <option value="Tarde">Tarde</option>
+        <option value="Noite">Noite</option>
+      </select>
+
       <br></br>
-      <label htmlFor="height">Sua altura</label>
-      <SliderInput setProp={setHeight} min={145} max={220} defaultValue={175} />
+
+      <label htmlFor="workoutType">Tipo de treino</label>
+      <select
+        name="workoutType"
+        id="workoutType"
+        onChange={(e) => setWorkoutType(e.target.value)}
+        defaultValue="Musculação"
+      >
+        <option value="Musculação">Musculação</option>
+        <option value="Crossfit">Crossfit</option>
+        <option value="Funcional">Funcional</option>
+      </select>
+
       <br></br>
-      <label htmlFor="height">Seu peso</label>
-      <SliderInput setProp={setWeight} min={50} max={150} defaultValue={80} />
+
+      <label htmlFor="workoutHours">Horas de treino por dia</label>
+      <select
+        name="workoutHours"
+        id="workoutHours"
+        onChange={(e) => setWorkoutHours(e.target.value)}
+        defaultValue="1h"
+      >
+        <option value="1">1h</option>
+        <option value="2">2h</option>
+        <option value="3">3h</option>
+      </select>
     </>
   );
 };

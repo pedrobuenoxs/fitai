@@ -1,8 +1,7 @@
 import React from "react";
-import SliderInput from "@/components/UI/AgeInput";
 import styles from "@/styles/PersonalInfoStep.module.css";
-import { Input, TextInput } from "@mantine/core";
-import { IconAt, IconRuler2, IconWeight } from "@tabler/icons-react";
+import { TextInput } from "@mantine/core";
+import { IconAt } from "@tabler/icons-react";
 interface PersonalInfoStepProps {
   name: string;
   email: string;
@@ -26,8 +25,6 @@ const PersonalInfoStep: React.FC<PersonalInfoStepProps> = ({
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <br></br>
-
       <br></br>
       <TextInput
         icon={<IconAt />}

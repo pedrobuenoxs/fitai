@@ -2,26 +2,19 @@ import SliderInput from "@/components/UI/AgeInput";
 import React from "react";
 
 interface WorkoutProps {
-  age: string;
-  height: string;
-  weight: string;
-  goal: string;
-  schedule: string;
   setGoal: (goal: string) => void;
-  setSchedule: (schedule: string) => void;
   setAge: (age: string) => void;
   setHeight: (height: string) => void;
   setWeight: (weight: string) => void;
+  setMealPreference: (mealPreference: string) => void;
 }
 
 const BodyStep: React.FC<WorkoutProps> = ({
-  goal,
-  schedule,
   setGoal,
-  setSchedule,
   setAge,
   setHeight,
   setWeight,
+  setMealPreference,
 }) => {
   return (
     <>
@@ -33,6 +26,31 @@ const BodyStep: React.FC<WorkoutProps> = ({
       <br></br>
       <label htmlFor="height">Seu peso</label>
       <SliderInput setProp={setWeight} min={50} max={150} defaultValue={80} />
+      <br></br>
+      <label htmlFor="goal">Seu objetivo</label>
+      <select
+        name="goal"
+        id="goal"
+        onChange={(e) => setGoal(e.target.value)}
+        defaultValue="Ganhar massa muscular"
+      >
+        <option value="Ganhar massa muscular">Ganhar massa muscular</option>
+        <option value="Perder peso">Perder peso</option>
+        <option value="Manter o peso">Manter o peso</option>
+      </select>
+
+      <br></br>
+      <label htmlFor="mealPreference">Preferência de refeição</label>
+      <select
+        name="mealPreference"
+        id="mealPreference"
+        onChange={(e) => setMealPreference(e.target.value)}
+        defaultValue="Carnívoro"
+      >
+        <option value="Carnívoro">Carnívoro</option>
+        <option value="Vegetariano">Vegetariano</option>
+        <option value="Vegano">Vegano</option>
+      </select>
     </>
   );
 };
