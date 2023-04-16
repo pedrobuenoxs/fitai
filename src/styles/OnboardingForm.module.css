@@ -1,0 +1,55 @@
+/* OnboardingForm.module.css */
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: space-evenly;
+    width: 100%;
+    
+  }
+
+  .input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    box-shadow: #ee9470  1px 1px 1px 0.5px;
+    border-radius: 5px;
+  }
+  
+  .button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #3e7ac5;
+  }
+  
+  .button:disabled {
+    background-color: #ccc;
+    cursor: default;
+  }
+  

@@ -1,0 +1,66 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 5rem;
+}
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.headerContent h1 {
+  font: bold 30px Poppins, sans-serif;
+  background-image: linear-gradient(60deg, #E21143, #FFB03A);
+  background-clip: text;
+  color: transparent;
+}
+.scrolled h1 {
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+.menu {
+  cursor: pointer;
+  font-size: 25px;
+  color: #E21143;
+}
+.navMenu {
+  position: absolute;
+  top: 110%;
+  right: 15%;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 10px;
+  font: bold 20px Poppins, sans-serif;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: all 0.3s ease;
+  pointer-events: none; /* This will prevent the navMenu from being clickable when hidden */
+}
+.menuOpen + .navMenu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; /* This will enable the navMenu to be clickable when visible */
+}
+.navMenu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navMenu li {
+  padding: 8px 16px;
+  cursor: pointer;
+  
+}
+
+.navMenu li:hover {
+  background-color: #f5f5f5;
+  background-image: linear-gradient(60deg, #E21143, #FFB03A);
+}
