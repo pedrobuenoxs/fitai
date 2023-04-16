@@ -6,6 +6,7 @@ import {
 import PersonalInfoStep from "./Steps/PersonalInfoStep";
 import MealStep from "./Steps/MealStep";
 import WorkoutStep from "./Steps/WorkoutStep";
+import BodyStep from "./Steps/BodyStep";
 import styles from "@/styles/OnboardingForm.module.css";
 import StepTracker from "@/components/UI/StepTracker";
 
@@ -49,25 +50,18 @@ const OnboardingForm: React.FC = () => {
         {currentStep === 1 && (
           <PersonalInfoStep
             name={formState.name}
-            age={formState.age}
             email={formState.email}
-            height={formState.height}
-            weight={formState.weight}
             setName={(name) => dispatch({ type: "UPDATE_NAME", payload: name })}
-            setAge={(age) => dispatch({ type: "UPDATE_AGE", payload: age })}
             setEmail={(email) =>
               dispatch({ type: "UPDATE_EMAIL", payload: email })
-            }
-            setHeight={(height) =>
-              dispatch({ type: "UPDATE_HEIGHT", payload: height })
-            }
-            setWeight={(weight) =>
-              dispatch({ type: "UPDATE_WEIGHT", payload: weight })
             }
           />
         )}
         {currentStep === 2 && (
           <WorkoutStep
+            age={formState.age}
+            height={formState.height}
+            weight={formState.weight}
             goal={formState.bodyObjective}
             schedule={formState.workoutFrequency}
             setGoal={(goal) =>
@@ -76,9 +70,38 @@ const OnboardingForm: React.FC = () => {
             setSchedule={(schedule) =>
               dispatch({ type: "UPDATE_WORKOUT_FREQUENCY", payload: schedule })
             }
+            setAge={(age) => dispatch({ type: "UPDATE_AGE", payload: age })}
+            setHeight={(height) =>
+              dispatch({ type: "UPDATE_HEIGHT", payload: height })
+            }
+            setWeight={(weight) =>
+              dispatch({ type: "UPDATE_WEIGHT", payload: weight })
+            }
           />
         )}
         {currentStep === 3 && (
+          <WorkoutStep
+            age={formState.age}
+            height={formState.height}
+            weight={formState.weight}
+            goal={formState.bodyObjective}
+            schedule={formState.workoutFrequency}
+            setGoal={(goal) =>
+              dispatch({ type: "UPDATE_BODY_OBJECTIVE", payload: goal })
+            }
+            setSchedule={(schedule) =>
+              dispatch({ type: "UPDATE_WORKOUT_FREQUENCY", payload: schedule })
+            }
+            setAge={(age) => dispatch({ type: "UPDATE_AGE", payload: age })}
+            setHeight={(height) =>
+              dispatch({ type: "UPDATE_HEIGHT", payload: height })
+            }
+            setWeight={(weight) =>
+              dispatch({ type: "UPDATE_WEIGHT", payload: weight })
+            }
+          />
+        )}
+        {currentStep === 4 && (
           <MealStep
             like={formState.like}
             dislike={formState.dislike}
@@ -102,13 +125,13 @@ const OnboardingForm: React.FC = () => {
             Back
           </button>
         )}
-        {currentStep < 3 && (
+        {currentStep < 4 && (
           <button className={styles.button} onClick={handleNext}>
             Next
           </button>
         )}{" "}
         {/* Change the number 2 to the total number of steps */}
-        {currentStep === 3 && (
+        {currentStep === 4 && (
           <button className={styles.button} onClick={handleSubmit}>
             Submit
           </button>

@@ -1,9 +1,10 @@
 import { Slider, rem } from "@mantine/core";
 
 const MARKS = [
-  { value: 25, label: "You" },
-  { value: 50, label: "Workouts" },
-  { value: 75, label: "Meals" },
+  { value: 20, label: "You" },
+  { value: 40, label: "Your body" },
+  { value: 60, label: "Workouts" },
+  { value: 80, label: "Meals Plan" },
 ];
 
 interface TrackerProps {
@@ -15,10 +16,10 @@ const SliderStepTracker: React.FC<TrackerProps> = ({ step, setStep }) => {
   return (
     <Slider
       label={MARKS[step - 1].label}
-      min={25}
-      max={75}
-      step={25}
-      defaultValue={25}
+      min={10}
+      max={90}
+      step={20}
+      defaultValue={20}
       marks={MARKS}
       labelTransition="fade"
       size={2}
@@ -42,8 +43,8 @@ const SliderStepTracker: React.FC<TrackerProps> = ({ step, setStep }) => {
           borderColor: theme.colors.orange[8],
         },
       })}
-      value={step * 25}
-      onChange={(value) => setStep(value / 25)}
+      value={step * 20}
+      onChange={(value) => setStep(value / 20)}
     />
   );
 };

@@ -14,7 +14,7 @@ interface WorkoutProps {
   setWeight: (weight: string) => void;
 }
 
-const WorkoutStep: React.FC<WorkoutProps> = ({
+const BodyStep: React.FC<WorkoutProps> = ({
   goal,
   schedule,
   setGoal,
@@ -37,4 +37,4 @@ const WorkoutStep: React.FC<WorkoutProps> = ({
   );
 };
 
-export default WorkoutStep;
+export default BodyStep;
