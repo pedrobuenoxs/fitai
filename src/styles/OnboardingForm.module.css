@@ -53,3 +53,27 @@
     cursor: default;
   }
   
+
+
+  .form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.form label {
+    margin-bottom: 10px;
+    font: bold 25px Poppins, sans-serif;
+    font-weight: 600;
+}
+
+.form input #name {
+    width: 40%;
+    height: 30px;
+    border-radius: 2px;
+    padding: 0 10px;
+}
+

@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "@/styles/PersonalInfoStep.module.css";
 import { TextInput } from "@mantine/core";
 import { IconAt } from "@tabler/icons-react";
 interface PersonalInfoStepProps {
@@ -16,7 +15,7 @@ const PersonalInfoStep: React.FC<PersonalInfoStepProps> = ({
   setEmail,
 }) => {
   return (
-    <div className={styles.container}>
+    <>
       <TextInput
         placeholder="Seu nome"
         label="Como você se chama?"
@@ -34,7 +33,7 @@ const PersonalInfoStep: React.FC<PersonalInfoStepProps> = ({
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-    </div>
+    </>
   );
 };
 

@@ -1,7 +1,8 @@
-import { Slider, RangeSlider, rem } from "@mantine/core";
-import { useState } from "react";
+import { Slider, rem } from "@mantine/core";
+import { useState, useEffect } from "react";
 
 interface AgeInputProps {
+  prop: string;
   min: number;
   max: number;
   defaultValue: number;
@@ -9,12 +10,14 @@ interface AgeInputProps {
 }
 
 const SliderInput: React.FC<AgeInputProps> = ({
+  prop,
   min,
   max,
   defaultValue,
   setProp,
 }) => {
-  const [value, setValue] = useState(defaultValue);
+  const [value, setValue] = useState(parseInt(prop) || defaultValue);
+
   return (
     <>
       <Slider
@@ -24,12 +27,15 @@ const SliderInput: React.FC<AgeInputProps> = ({
         step={1}
         defaultValue={defaultValue}
         color="orange"
-        thumbSize={5}
+        thumbSize={15}
         styles={{ thumb: { borderWidth: rem(2), padding: rem(3) } }}
         value={value}
         onChange={(value) => {
           setValue(value);
           setProp(value.toString());
+        }}
+        onChangeEnd={(value) => {
+          console.log("value", value);
         }}
         labelTransition="fade"
         label={value.toString()}

@@ -13,18 +13,18 @@ import StepTracker from "@/components/UI/StepTracker";
 const initialState: OnboardingFormState = {
   name: "", //ok
   email: "", //ok
-  age: "", //ok
+  age: "25", //ok
   location: "",
-  weight: "", //ok
-  height: "", //ok
-  bodyObjective: "", //ok
-  workoutFrequency: "",
+  weight: "80", //ok
+  height: "180", //ok
+  workoutFrequency: "Manhã",
+  workoutType: "Musculação",
+  workoutHours: "1h",
+  bodyObjective: "Ganhar massa muscular", //ok
   like: [],
   dislike: [],
   allergies: [],
-  workoutType: "",
-  mealPreference: "",
-  workoutHours: "",
+  mealPreference: "Carnívoro", //ok
 };
 
 const OnboardingForm: React.FC = () => {
@@ -48,7 +48,7 @@ const OnboardingForm: React.FC = () => {
       <StepTracker step={currentStep} setStep={setCurrentStep} />
       <br></br>
       <br></br>
-      <>
+      <div className={styles.form}>
         {currentStep === 1 && (
           <PersonalInfoStep
             name={formState.name}
@@ -61,6 +61,9 @@ const OnboardingForm: React.FC = () => {
         )}
         {currentStep === 2 && (
           <BodyStep
+            age={formState.age}
+            height={formState.height}
+            weight={formState.weight}
             setGoal={(goal) =>
               dispatch({ type: "UPDATE_BODY_OBJECTIVE", payload: goal })
             }
@@ -108,7 +111,7 @@ const OnboardingForm: React.FC = () => {
             }
           />
         )}
-      </>
+      </div>
       <div className={styles.buttons}>
         {/* Add more step components here */}
         {currentStep > 1 && (
